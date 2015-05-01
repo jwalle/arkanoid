@@ -1,6 +1,6 @@
 NAME = arkanoid
 
-SRC = main.c \
+SRC = test.c
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -16,9 +16,9 @@ all			:	$(NAME)
 
 $(NAME)		:	$(OBJ)
 	make -C ./libft
-	cmake -DCMAKE_INSTALL_PREFIX:PATH=/nfs/zfs-student-4/users/2014/jwalle/glfw ./glfw
+	cmake -DCMAKE_INSTALL_PREFIX:PATH=$(HOME)/glfw ./glfw
 	make -C ./glfw install
-	gcc -I /nfs/zfs-student-4/users/2014/jwalle/glfw/include -L /nfs/zfs-student-4/users/2014/jwalle/glfw/lib -o $(NAME) $(SRC) -lglfw
+	gcc -I$(HOME)/glfw/include/GLFW/ -L$(HOME)/glfw/lib/ -o $(NAME) $(SRC) -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 clean		:
 	make -C ./libft clean
 	$(RM) $(OBJ)
