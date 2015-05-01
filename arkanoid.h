@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/01 20:31:14 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/01 20:36:34 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/includes/libft.h"
+# include "glfw/include/GLFW/glfw3glfw/include/GLFW/glfw3.h"
 
 #endif
