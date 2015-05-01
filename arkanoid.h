@@ -6,12 +6,13 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/01 20:37:12 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/01 20:55:28 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARKANOID_H
 # define ARKANOID_H
+# define GLFW_INCLUDE_GLU
 
 # include <stdlib.h>
 # include <unistd.h>
