@@ -12,6 +12,8 @@ FLAGS		=	$(CFLAGS)
 CC			=	/usr/bin/gcc
 RM			=	/bin/rm -v
 
+.PHONY: re fclean clean extra
+
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJ)
@@ -21,11 +23,11 @@ $(NAME)		:	$(OBJ)
 	gcc -I$(HOME)/glfw/include/GLFW/ -L$(HOME)/glfw/lib/ -o $(NAME) $(SRC) -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 clean		:
 	make -C ./libft clean
-	$(RM) $(OBJ)
+	rm -rf $(OBJ)
 
 fclean		:	clean
 	make -C ./libft fclean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
 re			:	fclean all
 
