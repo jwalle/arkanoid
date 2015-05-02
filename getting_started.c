@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 17:00:40 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/02 19:30:26 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		main(void)
 	float		x;
 	float		b;
 	int			flag;
+	float		count;
 
 	e = (t_env *)malloc(sizeof(t_env));
 	get_map("maps/simple_map.jwalle", e);
@@ -55,6 +56,7 @@ int		main(void)
 	x = 0;
 	b = 0;
 	flag = 0;
+	count = 0.0;
 	while (!glfwWindowShouldClose(window))
 	{
         ratio = width / (float) height;
@@ -63,11 +65,15 @@ int		main(void)
 		glClear(GL_COLOR_BUFFER_BIT);
 		ft_follow(e);
 		x = ft_player(x, window);
-		b = ft_ball(x, b, flag);
-		flag = ft_flag(b, flag);
+		b = ft_ball(x, b, flag, count);
+		flag = ft_flag(b, flag, x, count);
 		glfwSetKeyCallback(window, key_callback);
         glfwPollEvents();
         glfwSwapBuffers(window);
+		if (flag == 0)
+			count += 0.01;
+		else
+			count -= 0.01;
 	}
 	glfwDestroyWindow(window);
 	glfwTerminate();
