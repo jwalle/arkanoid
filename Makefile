@@ -16,23 +16,21 @@ CFLAGS		=	-Wall -Wextra -Werror
 CC			=	/usr/bin/gcc
 RM			=	/bin/rm -v
 
-.PHONY: re fclean clean extra
-
 all			:	$(NAME)
 
 $(NAME)		:
-	git submodule update --init
-	cmake -B./glfw -H./glfw
-	make -C ./glfw
-	make -C ./libft
+	#git submodule update --init
+	#cmake -B./glfw -H./glfw
+	#make -C ./glfw
+	#make -C ./libft
 	$(CC) $(CFLAGS) $(SRC) $(LINK) $(INC) -o $(NAME)
-	make -C ./libft clean
+	#make -C ./libft clean
 	rm -rf $(OBJ)
 
 
 fclean		:	clean
-	make -C ./libft fclean
-#	rm -rf glfw
+	#make -C ./libft fclean
+	#rm -rf glfw
 	rm -rf $(NAME)
 
 re			:	fclean all
@@ -42,3 +40,5 @@ extra       :   re
 
 #%.o			:	%.c
 #	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+.PHONY: re fclean clean extra

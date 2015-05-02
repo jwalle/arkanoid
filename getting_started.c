@@ -45,7 +45,7 @@ int		main(void)
 	get_map("maps/simple_map.jwalle", e);
 	if (!glfwInit())
 		exit (EXIT_FAILURE);
-	window = glfwCreateWindow(640, 480, "ARKANOID", NULL, NULL);
+	window = glfwCreateWindow(1000, 1000, "ARKANOID", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
