@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arkanoid.h                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 12:00:01 by jwalle           ###   ########.fr       */
+/*   Created: 2014/11/16 18:06:37 by jwalle            #+#    #+#             */
+/*   Updated: 2015/05/02 11:59:41 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARKANOID_H
-# define ARKANOID_H
-# define GLFW_INCLUDE_GLU
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 4
 
-# include <stdlib.h>
+# include <fcntl.h>
 # include <unistd.h>
-# include "libft/includes/libft.h"
-# include "glfw/include/GLFW/glfw3.h"
+# include <stdlib.h>
+# include "libft.h"
+
+
+typedef struct	s_static
+{
+	char		*buf;
+	int			i;
+	int			size;
+	int			cpy;
+}				t_static;
+
+int				get_next_line(int const fd, char **line);
 
 #endif

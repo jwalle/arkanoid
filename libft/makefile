@@ -6,7 +6,7 @@
 #    By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 16:39:59 by jwalle            #+#    #+#              #
-#    Updated: 2014/11/22 17:39:42 by jwalle           ###   ########.fr        #
+#    Updated: 2015/05/02 11:58:42 by jwalle           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRC1 =	ft_putchar.c\
 		ft_lstnew.c\
 		ft_lstdelone.c\
 		ft_lstadd.c\
+		get_next_line.c\
 
 SRC2 =	ft_putchar.o\
 		ft_bzero.o\
@@ -125,6 +126,7 @@ SRC2 =	ft_putchar.o\
 		ft_lstnew.o\
 		ft_lstdelone.o\
 		ft_lstadd.o\
+		get_next_line.o\
 
 $(SOURCE) : ./src/
 
