@@ -3,6 +3,9 @@ NAME = arkanoid
 SRC = getting_started.c \
 		ft_follow.c \
 		get_map.c \
+		ft_player.c\
+		ft_ball.c\
+		ft_flag.c
 
 OBJ			=	$(SRC:.c=.o)
 
