@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 16:45:44 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 17:12:44 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/02 17:17:32 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ float		ft_ball(float x, float b, int flag)
 	else
 		b -= 0.03;
 	glEnd();
-	printf("%f\n", b);
 	x++;
 	return (b);
 }
