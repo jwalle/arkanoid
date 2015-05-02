@@ -16,11 +16,11 @@ RM			=	/bin/rm -v
 
 all			:	$(NAME)
 
-$(NAME)		:	$(OBJ)
+$(NAME)		:
 	git submodule update --init
+	cmake -B./glfw -H./glfw
+	make -C ./glfw
 	make -C ./libft
-	cmake -DCMAKE_INSTALL_PREFIX:PATH=$(HOME)/glfw ./glfw
-	make -C ./glfw install
 	gcc -I$(HOME)/glfw/include/GLFW/ -L$(HOME)/glfw/lib/ -o $(NAME) $(SRC) -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 clean		:
 	make -C ./libft clean
@@ -28,6 +28,7 @@ clean		:
 
 fclean		:	clean
 	make -C ./libft fclean
+	rm -rf glfw
 	rm -rf $(NAME)
 
 re			:	fclean all
@@ -35,5 +36,5 @@ re			:	fclean all
 extra       :   FLAGS += $(EXTRAFLAGS)
 extra       :   re
 
-%.o			:	%.c
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+#%.o			:	%.c
+#	$(CC) $(CFLAGS) $(INC) -c $< -o $@
