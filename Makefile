@@ -9,11 +9,10 @@ SRC = getting_started.c \
 
 OBJ			=	$(SRC:.c=.o)
 
-INC			=	-I./ -I./libft/include -I $HOME/glfw/include
-LINK		=	-L ./libft -lft -L $HOME/glfw/lib -lglfw
+INC			=	-I./ -I./libft/include -I./glfw/include 
+LINK		=	-L ./libft -lft -L./glfw/src/ -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 
 CFLAGS		=	-Wall -Wextra -Werror
-FLAGS		=	$(CFLAGS)
 CC			=	/usr/bin/gcc
 RM			=	/bin/rm -v
 
@@ -22,14 +21,14 @@ RM			=	/bin/rm -v
 all			:	$(NAME)
 
 $(NAME)		:
-#	git submodule update --init
+	git submodule update --init
 	cmake -B./glfw -H./glfw
 	make -C ./glfw
 	make -C ./libft
-	gcc $(FLAGS) -I$(HOME)/glfw/include/GLFW/ -L$(HOME)/glfw/lib/ -L./libft -lft -o $(NAME) $(SRC) -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
-clean		:
+	$(CC) $(CFLAGS) $(SRC) $(LINK) $(INC) -o $(NAME)
 	make -C ./libft clean
 	rm -rf $(OBJ)
+
 
 fclean		:	clean
 	make -C ./libft fclean
