@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 17:00:51 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/02 18:36:54 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct		s_brick
 void 	get_map(char *str, t_env *e);
 void	ft_follow(t_env *e);
 float	ft_player(float x, GLFWwindow *window);
-float	ft_ball(float x, float b, int flag);
-int		ft_flag(float b, int flag);
+float	ft_ball(float x, float b, int flag, float count);
+int		ft_flag(float b, int flag, float x, float count);
 
 #endif
