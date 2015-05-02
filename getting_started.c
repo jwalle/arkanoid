@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 14:58:29 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/05/02 15:15:34 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	error_callback(int error, const char *description)
 static	void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
 {
 	/* ici on lui dit de quitter si escape est pressé */
-	printf("%d\n", key); 
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	scancode++;
@@ -62,8 +61,10 @@ int		main(void)
         glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-	if (glfwGetKey(window, GLFW_KEY_LEFT))
+		if (glfwGetKey(window, GLFW_KEY_LEFT) && x < 0.65)
 			x += 0.1;
+		if (glfwGetKey(window, GLFW_KEY_RIGHT) && x > -0.65)
+			x -= 0.1;
 
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glBegin(GL_QUADS);
