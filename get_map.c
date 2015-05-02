@@ -6,11 +6,31 @@
 /*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/22 13:12:26 by jwalle            #+#    #+#             */
-/*   Updated: 2015/05/02 11:48:19 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/05/02 14:11:12 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arkanoid.h"
+
+void	print_map(t_env *e)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < e->line)
+	{
+		j = 0;
+		while (j < e->tab[i][0])
+		{
+			printf("%d ", e->tab[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}
+
 
 int	ft_col_count(char **tab)
 {
@@ -59,7 +79,7 @@ int		ft_line_count(int fd)
 	return (len);
 }
 
-void get_map(t_env *e, char *str)
+void get_map(char *str, t_env *e)
 {
 	int		fd;
 	char	*temp;
@@ -79,5 +99,6 @@ void get_map(t_env *e, char *str)
 		free(temp);
 		temp = NULL;
 	}
+	print_map(e);
 }
 

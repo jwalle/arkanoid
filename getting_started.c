@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 15:15:34 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/02 15:23:06 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ int		main(void)
 	int			height;
 	float		ratio;
 	float		x = 0;
+	t_env		*e;
+
+	e = NULL;
+	e = (t_env *)malloc(sizeof(t_env));
+	get_map("maps/simple_map.jwalle", e);
 
 	/* La librairie GLFW est initialisée. Si ça fonctionne, GL_TRUE est retourné
 	   sinon, GL_FALSE l'est. */
@@ -60,7 +65,7 @@ int		main(void)
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
-
+		ft_follow(e);
 		if (glfwGetKey(window, GLFW_KEY_LEFT) && x < 0.65)
 			x += 0.1;
 		if (glfwGetKey(window, GLFW_KEY_RIGHT) && x > -0.65)
@@ -73,7 +78,6 @@ int		main(void)
 		glVertex2d( (0.3f - x), -0.76f); // en haut à droite
 		glVertex2d(-(0.3f + x), -0.76f); // en haut à gauche
 		glEnd();
-
 
 		glfwSetKeyCallback(window, key_callback);
         glfwPollEvents();

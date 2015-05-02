@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h> // A RETIRER
 
 # include "libft/includes/libft.h"
 # include "glfw/include/GLFW/glfw3.h"
@@ -41,6 +42,6 @@ typedef struct		s_brick
 	float			yld;
 }					t_brick;
 
-void get_map(char *str, t_env *e);
+void 	get_map(char *str, t_env *e);
 void	ft_follow(t_env *e);
 #endif

@@ -1,6 +1,8 @@
 NAME = arkanoid
 
-SRC = getting_started.c
+SRC = getting_started.c \
+		ft_follow.c \
+		get_map.c \
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -21,7 +23,7 @@ $(NAME)		:
 	cmake -B./glfw -H./glfw
 	make -C ./glfw
 	make -C ./libft
-	gcc $(FLAGS) -I$(HOME)/glfw/include/GLFW/ -L$(HOME)/glfw/lib/ -o $(NAME) $(SRC) -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
+	gcc $(FLAGS) -I$(HOME)/glfw/include/GLFW/ -L$(HOME)/glfw/lib/ -L./libft -lft -o $(NAME) $(SRC) -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
 clean		:
 	make -C ./libft clean
 	rm -rf $(OBJ)
