@@ -33,11 +33,41 @@ void	ft_follow(t_env *e)
 				glVertex2d((-0.8f + x), (0.9f - y)); // en haut à droite
 				glVertex2d((-1.0f + x), (0.9f - y)); // en haut à gauche
 				glEnd();
-
-
 			}
 			j++;
 		}
 		i++;
 	}
 }
+// count -> x ; b -> y
+/*
+int		collide(t_env *e, int count, int b)
+{
+	double x;
+	double y;
+
+	x = (double)count;
+	y = (double)b;
+
+	while (i < e->line)
+	{
+		j = 1;
+		while (j < 11)
+		{
+			x = (j - 1) * 0.2;
+			y = i * 0.05;
+			if (e->tab[i][j] != 0)
+			{
+				
+					glVertex2d((-1.0f + x), (0.85f - y)); // en bas à gauche
+				//if ()
+					glVertex2d((-0.8f + x), (0.85f - y)); // en bas à droite
+
+					glVertex2d((-0.8f + x), (0.9f - y)); // en haut à droite
+					glVertex2d((-1.0f + x), (0.9f - y)); // en haut à gauche
+			}
+			j++;
+		}
+		i++;
+	}
+}*/

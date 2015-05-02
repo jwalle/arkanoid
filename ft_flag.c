@@ -14,15 +14,18 @@
 
 int			ft_flag(float b, int flag, float x, float count)
 {
-	printf("x = %f    count = %f    b = %f    flag = %d\n", x, count, b, flag);
-	if (b >= 1.8)
+	//printf("x = %f    count = %f    b = %f    flag = %d\n", x, count, b, flag);
+	
+	x++;
+	count++;
+	if (dt >= 1)
 	{
-		printf("ON RETOURNE\n");
+	//	printf("ON RETOURNE\n");
 		return (1);
 	}
-	if (flag == 1 && b >= 0)
+	if (flag == 1 && dt >= 0)
 	{
-		printf("ON CONTINUE DE RETOURNER\n");
+	//	printf("ON CONTINUE DE RETOURNER\n");
 		return (1);
 	}
 	return (0);

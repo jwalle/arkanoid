@@ -38,9 +38,12 @@ int		main(void)
 	float		ratio;
 	t_env		*e;
 	float		x;
-	float		b;
+//	float		b = 0.0;
 	int			flag;
 	float		count;
+	float		x_pos = 0.2;
+	float		y_pos = 0.1;
+	float		dt;
 
 	e = (t_env *)malloc(sizeof(t_env));
 	get_map("maps/simple_map.jwalle", e);
@@ -54,27 +57,60 @@ int		main(void)
 	}
 	glfwMakeContextCurrent(window);
 	x = 0;
-	b = 0;
+	//b = 0;
 	flag = 0;
 	count = 0.0;
-	while (!glfwWindowShouldClose(window))
+	glfwSetTime(0.);
+	e->speed_x = 1.0;
+	e->speed_y = 1.0;
+	//dt = glfwGetTime();
+	dt = 0.0;
+
+
+
+	while (!glfwWindowShouldClose(window) && glfwGetWindowAttrib(window, GLFW_VISIBLE))
 	{
+		
         ratio = width / (float) height;
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ft_follow(e);
+		//dt = glfwGetTime();
+			if (dt >= 1)
+			{
+				dt -= 0.01;
+				flag = 1;
+			}
+			else if (dt <= -1 && flag == 1)
+			{
+				dt += 0.01;
+				flag = 0;
+			}
+			else if (flag == 1 && dt < 1 )
+			{
+				dt -= 0.01;
+				flag = 1;
+			}
+			else
+			{
+				flag = 0;
+				dt+= 0.01;
+			}
+			printf("flag = %d  ;", flag );
+		ft_ball_move((dt),x_pos, y_pos, e);
 		x = ft_player(x, window);
-		b = ft_ball(x, b, flag, count);
-		flag = ft_flag(b, flag, x, count);
+		//flag = ft_flag(b, flag, x, count);
 		glfwSetKeyCallback(window, key_callback);
+
         glfwPollEvents();
         glfwSwapBuffers(window);
 		if (flag == 0)
 			count += 0.01;
 		else
 			count -= 0.01;
-	}
+
+	}	
 	glfwDestroyWindow(window);
 	glfwTerminate();
 	return (0);
