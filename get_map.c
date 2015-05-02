@@ -20,8 +20,8 @@ void	print_map(t_env *e)
 	i = 0;
 	while (i < e->line)
 	{
-		j = 0;
-		while (j < e->tab[i][0])
+		j = 1;
+		while (j < (e->tab[i][0] + 1))
 		{
 			printf("%d ", e->tab[i][j]);
 			j++;
