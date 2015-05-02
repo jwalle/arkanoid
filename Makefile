@@ -1,6 +1,6 @@
 NAME = arkanoid
 
-SRC = test.c
+SRC = main.c
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -17,6 +17,7 @@ RM			=	/bin/rm -v
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJ)
+	git submodule update --init
 	make -C ./libft
 	cmake -DCMAKE_INSTALL_PREFIX:PATH=$(HOME)/glfw ./glfw
 	make -C ./glfw install
