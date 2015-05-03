@@ -85,6 +85,7 @@ int		ft_collide(t_env *e)
 					if (e->tab[i][j] != 0)
 					{
 						e->tab[i][j] -= 1;
+						e->score += 50;
 						return (1);
 
 					}

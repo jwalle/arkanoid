@@ -61,11 +61,13 @@ void 	ft_ball_move(t_env *e)
 	//}
 	//else if (e->y_pos >= (1. - radius))
 	//	e->speed_y *= -1;
+
 	else if (ft_collide(e))
 	{
-		e->speed_y *= -1;
-		e->speed_x *= -1;	
+		e->speed_y *= -1;	
 	}
+	//if (ft_collide(e) && e->speed_y == 1 && e->speed_x == 1)
+	
 	ft_ball(e->x_pos, e->y_pos);
 }
 

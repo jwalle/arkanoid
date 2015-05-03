@@ -28,6 +28,7 @@ typedef struct 		s_env
 	int				**tab;
 	int				line;
 	int				col;
+	int				score;
 	float 			x;
 	float			speed_x;
 	float			speed_y;

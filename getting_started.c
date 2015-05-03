@@ -55,6 +55,7 @@ int		main(void)
 	e->speed_y = 1.0;
 	e->x_pos = 0.2;
 	e->y_pos = 0.1;
+	e->score = 0;
 	while (!glfwWindowShouldClose(window) &&
 		   glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
 		   height > 150 && width > 150)
