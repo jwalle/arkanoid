@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 18:56:41 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 19:08:32 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 19:56:34 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ char		*ft_good_maps(int i)
 	char *str;
 
 	i++;
-	str = ft_strjoin("maps/", ft_itoa(i));
+	str = ft_strjoin("levels/", ft_itoa(i));
 	return (ft_strjoin(str, ".jwalle"));
 }
