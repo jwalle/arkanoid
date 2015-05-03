@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 20:35:11 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 20:59:44 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct 		s_env
 	int				score;
 	int				life;
 	int				levels;
+	int				end;
 	float 			x;
 	float			speed_x;
 	float			speed_y;
