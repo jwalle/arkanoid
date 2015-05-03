@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 17:57:52 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 18:24:16 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 20:43:55 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void		ft_rebond(t_env *e, GLFWwindow *window)
 {
 	if (e->y_pos <= e->y_hg + 0.05 && e->x_pos >= e->x_hg - 0.05 &&
-		e->x_pos <= e->x_hd + 0.05 )
+		e->x_pos <= e->x_hd + 0.05)
 		e->speed_y *= -1;
 	else if (e->y_pos < e->y_bg + 0.05)
 	{
