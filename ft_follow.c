@@ -25,7 +25,8 @@ int		ft_win(t_env *e)
 		j = 1;
 		while (j < 11)
 		{
-			total += e->tab[i][j];
+			if (e->tab[i][j] != 8) 
+				total += e->tab[i][j];
 			j++;
 		}
 		i++;

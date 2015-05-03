@@ -39,13 +39,12 @@ int			ft_getting_started(t_env *e, int i)
 	}
 	glfwMakeContextCurrent(window);
 	x_barre = 0;
-	glfwSetTime(0.);
 	while (j == 0 &&
-		   glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
-		   height > 150 && width > 150 && e->life > 0)
+		glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
+		height > 150 && width > 150 && e->life > 0)
 	{
-        glfwGetFramebufferSize(window, &width, &height);
-        glViewport(0, 0, width, height);
+		glfwGetFramebufferSize(window, &width, &height);
+		glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ft_disp_score(e);
 		ft_score(e);
@@ -58,10 +57,10 @@ int			ft_getting_started(t_env *e, int i)
 			j = -1;
 		if (glfwGetKey(window, GLFW_KEY_N))
 			j = 2;
-        glfwPollEvents();
-        glfwSwapBuffers(window);
+		glfwPollEvents();
+		glfwSwapBuffers(window);
 		glRasterPos2i(100, 120);
-		glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
 	}
 	glfwDestroyWindow(window);
 	return (j);

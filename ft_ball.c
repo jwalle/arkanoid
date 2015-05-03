@@ -38,8 +38,8 @@ void		ft_ball_move(t_env *e)
 
 	radius = 0.025;
 	ratio = 1200. / 1000.;
-	e->x_pos += (e->speed_x * 0.04);
-	e->y_pos += (e->speed_y * 0.05);
+	e->x_pos += (e->speed_x * 0.03);
+	e->y_pos += (e->speed_y * 0.025);
 	if (e->x_pos >= (ratio - radius) || e->x_pos <= (-ratio + radius))
 		e->speed_x *= -1;
 	else if (e->x_pos >= 1 || e->x_pos <= -1.0)

@@ -49,6 +49,12 @@ int		ft_collide2(t_env *e, int i, int j)
 	return (0);
 }
 
+void	ft_collide5(t_env *e, int i, int j)
+{
+	e->tab[i][j] = e->tab[i][j] - 1;
+	e->score += 50;
+}
+
 int		ft_collide4(t_env *e, int i, int j)
 {
 	if (ft_collide3(e, i, j))
@@ -57,17 +63,17 @@ int		ft_collide4(t_env *e, int i, int j)
 		{
 			if (e->tab[i][j] > 0)
 			{
-				e->tab[i][j] = e->tab[i][j] - 1;
-				e->score += 50;
+				if (e->tab[i][j] != 8)
+					ft_collide5(e, i, j);
 				return (-1);
 			}
 		}
 		else
 		{
-			if (e->tab[i][j] > 0)
+			if (e->tab[i][j] > 0 && e->tab[i][j] != 8)
 			{
-				e->tab[i][j] = e->tab[i][j] - 1;
-				e->score += 50;
+				if (e->tab[i][j] != 8)
+					ft_collide5(e, i, j);
 				return (1);
 			}
 		}
@@ -82,6 +88,7 @@ int		ft_collide(t_env *e)
 	int		ret;
 
 	i = 0;
+	printf("%d\n", e->end);
 	while (i < e->line)
 	{
 		j = 1;
