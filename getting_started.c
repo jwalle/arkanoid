@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 19:41:58 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 21:09:36 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int			ft_getting_started(t_env *e, int i)
 		ft_rebond(e, window);
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
 			j = -1;
+		if (glfwGetKey(window, GLFW_KEY_N))
+			j = 2;
         glfwPollEvents();
         glfwSwapBuffers(window);
 		glRasterPos2i(100, 120);
