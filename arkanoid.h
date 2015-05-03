@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 21:02:04 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 23:14:31 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <math.h>
 # include <fcntl.h>
-# include <stdio.h> // A RETIRER
+# include <stdio.h>
 # include <GLUT/glut.h>
 
 # include "libft/includes/libft.h"

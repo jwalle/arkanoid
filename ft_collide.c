@@ -6,7 +6,7 @@
 /*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 22:25:22 by jwalle            #+#    #+#             */
-/*   Updated: 2015/05/03 22:25:25 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/05/03 23:13:31 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int		ft_collide(t_env *e)
 	int		ret;
 
 	i = 0;
-	printf("%d\n", e->end);
 	while (i < e->line)
 	{
 		j = 1;
