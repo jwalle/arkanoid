@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 17:06:27 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 17:57:48 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int		main(void)
 		ft_ball_move(e);
 		x_barre = ft_player(x_barre, window);
 		ft_get_pos(e, x_barre);
+		ft_rebond(e);
 		glfwSetKeyCallback(window, key_callback);
         glfwPollEvents();
         glfwSwapBuffers(window);
