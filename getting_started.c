@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 18:25:16 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 18:39:00 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@ int		main(void)
         glfwSwapBuffers(window);
 		glRasterPos2i(100, 120);
 		glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-	}	
+	}
 	glfwDestroyWindow(window);
+	ft_gameover(e);
 	glfwTerminate();
 	return (0);
 }
