@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 11:59:11 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/02 20:21:29 by jwalle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ float	ft_player(float x, GLFWwindow *window);
 void	ft_ball(float x_pos, float y_pos);
 int		ft_flag(float b, int flag, float x, float count);
 void 	ft_ball_move(t_env *e);
+int		ft_collide(t_env *e);
 
 #endif

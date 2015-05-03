@@ -1,0 +1,91 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   getting_started.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
+/*   Updated: 2015/05/02 19:30:26 by kleiba           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "arkanoid.h"
+#include <stdio.h>
+
+void	error_callback(int error, const char *description)
+{
+	fputs(description, stderr);
+	error++;
+	error--;
+}
+
+static	void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+	scancode++;
+	scancode--;
+	mods++;
+	mods--;
+}
+
+int		main(void)
+{
+	GLFWwindow	*window;
+	int			width = 1200;
+	int			height = 1000;
+	float		ratio;
+	t_env		*e;
+	float		x;
+	int			flag;
+	float		count;
+
+	e = (t_env *)malloc(sizeof(t_env));
+	get_map("maps/simple_map.jwalle", e);
+	if (!glfwInit())
+		exit (EXIT_FAILURE);
+	window = glfwCreateWindow(1200, 1000, "ARKANOID", NULL, NULL);
+	if (!window)
+	{
+		glfwTerminate();
+		exit(EXIT_FAILURE);
+	}
+	glfwMakeContextCurrent(window);
+	x = 0;
+	//b = 0;
+	flag = 0;
+	count = 0.0;
+	glfwSetTime(0.);
+	e->speed_x = 1.0;
+	e->speed_y = 1.0;
+	e->x_pos = 0.2;
+	e->y_pos = 0.1;
+
+	while (!glfwWindowShouldClose(window) && glfwGetWindowAttrib(window, GLFW_VISIBLE))
+	{
+		
+        ratio = (float)width / (float)height;
+        glfwGetFramebufferSize(window, &width, &height);
+        glViewport(0, 0, width, height);
+		glClear(GL_COLOR_BUFFER_BIT);
+		ft_follow(e);
+
+		float const dt = glfwGetTime();
+		ft_ball_move(dt, e);
+		x = ft_player(x, window);
+		//flag = ft_flag(b, flag, x, count);
+		glfwSetKeyCallback(window, key_callback);
+
+        glfwPollEvents();
+        glfwSwapBuffers(window);
+		if (flag == 0)
+			count += 0.01;
+		else
+			count -= 0.01;
+
+	}	
+	glfwDestroyWindow(window);
+	glfwTerminate();
+	return (0);
+}

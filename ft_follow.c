@@ -61,3 +61,41 @@ void	ft_follow(t_env *e)
 		i++;
 	}
 }
+
+
+int		ft_collide(t_env *e)
+{
+	int		i;
+	int		j;
+	float	x;
+	float	y;
+
+	i = 0;
+	while (i < e->line)
+	{
+		j = 1;
+		while (j < 11)
+		{
+			x = - 1.0 + ((j - 1) * 0.2);
+			y = 0.85 - (i * 0.05);
+			if (e->x_pos >= x && e->x_pos <= (x + 0.2))
+			{
+				if (e->y_pos >= y && e->y_pos <= (y + 0.05))
+				{
+					if (e->tab[i][j] != 0)
+					{
+						e->tab[i][j] -= 1;
+						return (1);
+
+					}
+				}
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+
+
