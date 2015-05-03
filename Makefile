@@ -17,7 +17,8 @@ SRC = getting_started.c \
 		ft_c.c\
 		ft_o.c\
 		ft_r.c\
-		ft_e.c
+		ft_e.c\
+		ft_collide.c
 
 OBJ			=	$(SRC:.c=.o)
 
@@ -49,8 +50,5 @@ re			:	fclean all
 
 extra       :   FLAGS += $(EXTRAFLAGS)
 extra       :   re
-
-#%.o			:	%.c
-#	$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 .PHONY: re fclean clean extra

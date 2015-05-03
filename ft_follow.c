@@ -12,6 +12,27 @@
 
 #include "arkanoid.h"
 
+int		ft_win(t_env *e)
+{
+	int		i;
+	int		j;
+	int		total;
+
+	i = 0;
+	total = 0;
+	while (i < e->line)
+	{
+		j = 1;
+		while (j < 11)
+		{
+			total += e->tab[i][j];
+			j++;
+		}
+		i++;
+	}
+	return (total);
+}
+
 void	ft_i_follow(double x, double y, double z)
 {
 	glBegin(GL_LINE_LOOP);
@@ -43,6 +64,7 @@ void	ft_follow(t_env *e)
 	double	z;
 
 	i = 0;
+	e->end = ft_win(e);
 	while (i < e->line)
 	{
 		j = 1;
@@ -60,54 +82,4 @@ void	ft_follow(t_env *e)
 		}
 		i++;
 	}
-}
-
-int		ft_collide(t_env *e)
-{
-	int		i;
-	int		j;
-	float	x1;
-	float	y1;
-	float	x2;
-	float	y2;
-	float	radius = 0.015;
-	i = 0;
-	while (i < e->line)
-	{
-		j = 1;
-		while (j < 11)
-		{
-			x1 = -1.0 + ((j - 1) * 0.2);
-			y1 = 0.85 - (i * 0.05);
-			x2 = - 0.8 + ((j - 1) * 0.2);
-			y2 = 0.9 - (i * 0.05);
-			if (e->x_pos >= x1 && e->x_pos <= x2 && e->y_pos >= y1 && e->y_pos <= y2)
-			{
-				if ((((e->y_pos + radius) >= y1 && (e->y_pos - radius) <= y1)
-				&& ((e->x_pos - radius) >= x1 && (e->x_pos + radius) <= x2)) ||
-				(((e->y_pos + radius) >= y2 && (e->y_pos - radius) <= y2) &&
-				(((e->x_pos - radius) >= x1 && (e->x_pos + radius) <= x2))))
-				{
-					if (e->tab[i][j] > 0)
-					{
-						e->tab[i][j] = e->tab[i][j] - 1;
-						e->score += 50;
-						return (-1);
-					}
-				}
-				else
-				{
-					if (e->tab[i][j] > 0)
-					{
-						e->tab[i][j] = e->tab[i][j] - 1;
-						e->score += 50;
-						return (1);
-					}
-				}
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
 }
