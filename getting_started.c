@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 19:30:26 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 12:00:05 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,8 @@ int		main(void)
 	GLFWwindow	*window;
 	int			width = 1200;
 	int			height = 1000;
-	float		ratio;
 	t_env		*e;
-	float		x;
-//	float		b = 0.0;
-	int			flag;
-	float		count;
+	float		x_barre;
 
 	e = (t_env *)malloc(sizeof(t_env));
 	get_map("maps/simple_map.jwalle", e);
@@ -53,60 +49,25 @@ int		main(void)
 		exit(EXIT_FAILURE);
 	}
 	glfwMakeContextCurrent(window);
-	x = 0;
-	//b = 0;
-	flag = 0;
-	count = 0.0;
+	x_barre = 0;
 	glfwSetTime(0.);
 	e->speed_x = 1.0;
 	e->speed_y = 1.0;
 	e->x_pos = 0.2;
 	e->y_pos = 0.1;
-	//dt = glfwGetTime();
-	//dt = 0.0;
-
-	while (!glfwWindowShouldClose(window) && glfwGetWindowAttrib(window, GLFW_VISIBLE))
+	while (!glfwWindowShouldClose(window) &&
+		   glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
+		   height > 150 && width > 150)
 	{
-		
-        ratio = (float)width / (float)height;
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ft_follow(e);
-/*			if (dt >= 1)
-			{
-				dt -= 0.01;
-				flag = 1;
-			}
-			else if (dt <= -1 && flag == 1)
-			{
-				dt += 0.01;
-				flag = 0;
-			}
-			else if (flag == 1 && dt < 1 )
-			{
-				dt -= 0.01;
-				flag = 1;
-			}
-			else
-			{
-				flag = 0;
-				dt+= 0.01;
-			}
-			printf("flag = %d  ;", flag );*/
-		float const dt = glfwGetTime();
-		ft_ball_move(dt, e);
-		x = ft_player(x, window);
-		//flag = ft_flag(b, flag, x, count);
+		ft_ball_move(e);
+		x_barre = ft_player(x_barre, window);
 		glfwSetKeyCallback(window, key_callback);
-
         glfwPollEvents();
         glfwSwapBuffers(window);
-		if (flag == 0)
-			count += 0.01;
-		else
-			count -= 0.01;
-
 	}	
 	glfwDestroyWindow(window);
 	glfwTerminate();
