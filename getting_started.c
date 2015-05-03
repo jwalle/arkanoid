@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 19:21:51 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 19:39:12 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,6 @@ void	error_callback(int error, const char *description)
 	fputs(description, stderr);
 	error++;
 	error--;
-}
-
-static	void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods)
-{
-	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, GL_TRUE);
-	scancode++;
-	scancode--;
-	mods++;
-	mods--;
 }
 
 int			ft_getting_started(t_env *e, int i)
@@ -50,7 +40,7 @@ int			ft_getting_started(t_env *e, int i)
 	glfwMakeContextCurrent(window);
 	x_barre = 0;
 	glfwSetTime(0.);
-	while (!glfwWindowShouldClose(window) &&
+	while (j == 0 &&
 		   glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
 		   height > 150 && width > 150 && e->life > 0)
 	{
@@ -66,7 +56,6 @@ int			ft_getting_started(t_env *e, int i)
 		ft_rebond(e, window);
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
 			j = -1;
-		glfwSetKeyCallback(window, key_callback);
         glfwPollEvents();
         glfwSwapBuffers(window);
 		glRasterPos2i(100, 120);

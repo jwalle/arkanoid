@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 18:48:14 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 19:24:05 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 19:37:21 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ int		main(void)
 	e->score = 0;
 	e->life = 3;
 	e->levels = 2;
-	while (i <= e->levels)
+	while (i < e->levels)
 	{
 		if (ft_getting_started(e, i) == -1)
-			e->life = 0;
-		else
-			break ;
+			i = e->levels + 2;
 		i++;
 	}
 	ft_gameover(e);
