@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 20:21:29 by jwalle           ###   ########.fr       */
+/*   Updated: 2015/05/03 16:17:08 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <fcntl.h>
 # include <stdio.h> // A RETIRER
+# include <GLUT/glut.h>
 
 # include "libft/includes/libft.h"
 # include "glfw/include/GLFW/glfw3.h"
@@ -29,6 +30,7 @@ typedef struct 		s_env
 	int				line;
 	int				col;
 	int				score;
+	int				life;
 	float 			x;
 	float			speed_x;
 	float			speed_y;
@@ -55,5 +57,7 @@ void	ft_ball(float x_pos, float y_pos);
 int		ft_flag(float b, int flag, float x, float count);
 void 	ft_ball_move(t_env *e);
 int		ft_collide(t_env *e);
+void	ft_score(t_env *e);
+void	ft_disp_score(t_env *e);
 
 #endif

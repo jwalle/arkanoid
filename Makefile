@@ -5,14 +5,15 @@ SRC = getting_started.c \
 		get_map.c \
 		ft_player.c\
 		ft_ball.c\
-#		ft_flag.c
+		ft_score.c\
+		ft_disp_score.c
 
 OBJ			=	$(SRC:.c=.o)
 
 INC			=	-I./ -I./libft/include -I./glfw/include 
-LINK		=	-L ./libft -lft -L./glfw/src/ -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
+LINK		=	-L ./libft -lft -L./glfw/src/ -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -framework GLUT
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -Wno-deprecated
 CC			=	/usr/bin/gcc
 RM			=	/bin/rm -v
 

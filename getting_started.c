@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 12:00:05 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 16:26:30 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		main(void)
 	e->x_pos = 0.2;
 	e->y_pos = 0.1;
 	e->score = 0;
+	e->life = 3;
 	while (!glfwWindowShouldClose(window) &&
 		   glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
 		   height > 150 && width > 150)
@@ -63,12 +64,16 @@ int		main(void)
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
+		ft_disp_score(e);
+		ft_score(e);
 		ft_follow(e);
 		ft_ball_move(e);
 		x_barre = ft_player(x_barre, window);
 		glfwSetKeyCallback(window, key_callback);
         glfwPollEvents();
         glfwSwapBuffers(window);
+		glRasterPos2i(100, 120);
+		glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
 	}	
 	glfwDestroyWindow(window);
 	glfwTerminate();
