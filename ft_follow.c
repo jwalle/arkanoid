@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 10:49:48 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 10:54:29 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 20:18:21 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	ft_i_follow(double x, double y, double z)
 {
 	glBegin(GL_LINE_LOOP);
 	glColor3f(1.0f - z, 0.0f + z, 1.0f - z);
-	glVertex2d((-1.0f + x), (0.85f - y)); // en bas a gauche
-	glVertex2d((-0.8f + x), (0.85f - y)); // en bas a droite
-	glVertex2d((-0.8f + x), (0.9f - y)); // en haut a droite
-	glVertex2d((-1.0f + x), (0.9f - y)); // en haut a gauche
+	glVertex2d((-1.0f + x), (0.85f - y));
+	glVertex2d((-0.8f + x), (0.85f - y));
+	glVertex2d((-0.8f + x), (0.9f - y));
+	glVertex2d((-1.0f + x), (0.9f - y));
 	glEnd();
 }
 
@@ -62,7 +62,6 @@ void	ft_follow(t_env *e)
 	}
 }
 
-
 int		ft_collide(t_env *e)
 {
 	int		i;
@@ -78,7 +77,7 @@ int		ft_collide(t_env *e)
 		j = 1;
 		while (j < 11)
 		{
-			x1 = - 1.0 + ((j - 1) * 0.2);
+			x1 = -1.0 + ((j - 1) * 0.2);
 			y1 = 0.85 - (i * 0.05);
 			x2 = - 0.8 + ((j - 1) * 0.2);
 			y2 = 0.9 - (i * 0.05);
@@ -112,6 +111,3 @@ int		ft_collide(t_env *e)
 	}
 	return (0);
 }
-
-
-
