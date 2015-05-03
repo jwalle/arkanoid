@@ -33,23 +33,20 @@ static	void key_callback(GLFWwindow *window, int key, int scancode, int action, 
 int		main(void)
 {
 	GLFWwindow	*window;
-	int			width;
-	int			height;
+	int			width = 1200;
+	int			height = 1000;
 	float		ratio;
 	t_env		*e;
 	float		x;
 //	float		b = 0.0;
 	int			flag;
 	float		count;
-	float		x_pos = 0.2;
-	float		y_pos = 0.1;
-	float		dt;
 
 	e = (t_env *)malloc(sizeof(t_env));
 	get_map("maps/simple_map.jwalle", e);
 	if (!glfwInit())
 		exit (EXIT_FAILURE);
-	window = glfwCreateWindow(1000, 1000, "ARKANOID", NULL, NULL);
+	window = glfwCreateWindow(1200, 1000, "ARKANOID", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -63,21 +60,20 @@ int		main(void)
 	glfwSetTime(0.);
 	e->speed_x = 1.0;
 	e->speed_y = 1.0;
+	e->x_pos = 0.2;
+	e->y_pos = 0.1;
 	//dt = glfwGetTime();
-	dt = 0.0;
-
-
+	//dt = 0.0;
 
 	while (!glfwWindowShouldClose(window) && glfwGetWindowAttrib(window, GLFW_VISIBLE))
 	{
 		
-        ratio = width / (float) height;
+        ratio = (float)width / (float)height;
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
 		glClear(GL_COLOR_BUFFER_BIT);
 		ft_follow(e);
-		//dt = glfwGetTime();
-			if (dt >= 1)
+/*			if (dt >= 1)
 			{
 				dt -= 0.01;
 				flag = 1;
@@ -97,8 +93,9 @@ int		main(void)
 				flag = 0;
 				dt+= 0.01;
 			}
-			printf("flag = %d  ;", flag );
-		ft_ball_move((dt),x_pos, y_pos, e);
+			printf("flag = %d  ;", flag );*/
+		float const dt = glfwGetTime();
+		ft_ball_move(dt, e);
 		x = ft_player(x, window);
 		//flag = ft_flag(b, flag, x, count);
 		glfwSetKeyCallback(window, key_callback);

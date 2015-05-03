@@ -44,34 +44,33 @@ void		ft_ball(float x_pos, float y_pos /*, int flag, float count*/)
 }
 
 
-void 	ft_ball_move(float dt, float x_pos, float y_pos, t_env *e)
+void 	ft_ball_move(float dt, t_env *e)
 {
 
-	//float radius = 0.025;
-	//float ratio = (4./3.);
+	float radius = 0.025;
+	float ratio = (1200./1000.);
 
-	x_pos += e->speed_x * dt;
-	y_pos += e->speed_y * dt;
+	e->x_pos += (e->speed_x * 0.01);
+	e->y_pos += (e->speed_y * 0.02);
 
-	printf("x_pos = %f ; y_pos = %f, dt = %f\n", x_pos, y_pos, dt);
+	printf("e->x_pos = %f ; e->y_pos = %f, dt = %f, speed_y = %f, speed_x = %f\n", e->x_pos, e->y_pos, dt, e->speed_y, e->speed_x);
 	
 
-	//if (x_pos >= (ratio - radius) || x_pos <= (-ratio + radius))
-	//	e->speed_x *= -1;
-	//else if (x_pos >= 1 || x_pos <= -1.0)
-	//{
-	//	e->speed_y *= -1;
-	//	printf("plop\n");
-	//}
-	//else if (y_pos == 1.0 || y_pos == -1.0)
-	//	e->speed_y *= -1;
-	if (x_pos >= 1.0 && y_pos >= 1.0)
+	if (e->x_pos >= (ratio - radius) || e->x_pos <= (-ratio + radius))
+		e->speed_x *= -1;
+	else if (e->x_pos >= 1 || e->x_pos <= -1.0)
+	{
+		e->speed_x *= -1;
+	}
+	else if (e->y_pos >= 1.0 || e->y_pos <= -1.0)
+		e->speed_y *= -1;
+	else if (e->x_pos >= 1.0 && e->y_pos >= 1.0)
 	{
 		e->speed_y *= 1;
 		e->speed_x *= 1;
 	}
-	//if (y_pos >= (1. - radius))
-	//	e->speed_y *= -1;
+	else if (e->y_pos >= (1. - radius))
+		e->speed_y *= -1;
 
-	ft_ball(x_pos, y_pos);
+	ft_ball(e->x_pos, e->y_pos);
 }
