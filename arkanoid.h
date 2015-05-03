@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 18:34:46 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 19:16:25 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct 		s_env
 	int				col;
 	int				score;
 	int				life;
+	int				levels;
 	float 			x;
 	float			speed_x;
 	float			speed_y;
@@ -71,5 +72,7 @@ void	ft_get_pos(t_env *e, float x_barre);
 void	ft_rebond(t_env *e, GLFWwindow *window);
 void	ft_gameover(t_env *e);
 void	ft_disp_go(void);
+int		ft_getting_started(t_env *e, int i);
+char	*ft_good_maps(int i);
 
 #endif

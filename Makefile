@@ -11,6 +11,8 @@ SRC = getting_started.c \
 		ft_rebond.c\
 		ft_gameover.c\
 		ft_disp_go.c\
+		main.c\
+		ft_good_maps.c
 
 OBJ			=	$(SRC:.c=.o)
 
