@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 10:53:12 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 17:57:48 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 18:25:16 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		main(void)
 	e->life = 3;
 	while (!glfwWindowShouldClose(window) &&
 		   glfwGetWindowAttrib(window, GLFW_VISIBLE) &&
-		   height > 150 && width > 150)
+		   height > 150 && width > 150 && e->life > 0)
 	{
         glfwGetFramebufferSize(window, &width, &height);
         glViewport(0, 0, width, height);
@@ -70,7 +70,7 @@ int		main(void)
 		ft_ball_move(e);
 		x_barre = ft_player(x_barre, window);
 		ft_get_pos(e, x_barre);
-		ft_rebond(e);
+		ft_rebond(e, window);
 		glfwSetKeyCallback(window, key_callback);
         glfwPollEvents();
         glfwSwapBuffers(window);
