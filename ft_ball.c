@@ -15,19 +15,14 @@
 void		ft_ball(float x_pos, float y_pos)
 {
 	float radius;
-	float angle;
 
-	radius = 0.025;
-	angle = 0;
-	glColor3f(0.0f, 1.0f, 0.0f);
-	glBegin(GL_TRIANGLE_FAN);
-	glVertex2d(x_pos, y_pos);
-	while (angle < 10)
-	{
-		glVertex2f((x_pos + sin(angle) * radius), 
-			(y_pos + (cos(angle)) * radius));
-		angle += 0.01;
-	}
+	radius = 0.02;
+	glBegin(GL_QUADS);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	glVertex2d((x_pos - radius), (y_pos - radius));
+	glVertex2d((x_pos + radius), (y_pos - radius));
+	glVertex2d((x_pos + radius), (y_pos + radius));
+	glVertex2d((x_pos - radius), (y_pos + radius));
 	glEnd();
 }
 
