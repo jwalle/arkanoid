@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 18:48:14 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 21:09:05 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 22:42:42 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(void)
 	e->x_pos = 0.2;
 	e->y_pos = 0.1;
 	e->score = 0;
-	e->life = 3;
+	e->life = 7;
 	e->levels = 4;
 	while (i < e->levels)
 	{
