@@ -12,7 +12,12 @@ SRC = getting_started.c \
 		ft_gameover.c\
 		ft_disp_go.c\
 		main.c\
-		ft_good_maps.c
+		ft_good_maps.c\
+		ft_s.c\
+		ft_c.c\
+		ft_o.c\
+		ft_r.c\
+		ft_e.c
 
 OBJ			=	$(SRC:.c=.o)
 

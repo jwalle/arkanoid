@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 18:48:14 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 19:37:21 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 20:26:26 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		main(void)
 	e->y_pos = 0.1;
 	e->score = 0;
 	e->life = 3;
-	e->levels = 2;
+	e->levels = 4;
 	while (i < e->levels)
 	{
 		if (ft_getting_started(e, i) == -1)

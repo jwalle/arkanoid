@@ -6,16 +6,11 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 16:45:44 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 12:05:20 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 20:21:56 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "arkanoid.h"
-
-/*
-** 	printf("e->x_pos = %f ; e->y_pos = %f, speed_y = %f, speed_x = %f\n",
-**	e->x_pos, e->y_pos, e->speed_y, e->speed_x);
-*/
 
 void		ft_ball(float x_pos, float y_pos)
 {
@@ -36,38 +31,22 @@ void		ft_ball(float x_pos, float y_pos)
 	glEnd();
 }
 
-void 	ft_ball_move(t_env *e)
+void		ft_ball_move(t_env *e)
 {
+	float radius;
+	float ratio;
 
-	float radius = 0.025;
-	float ratio = (1200./1000.);
-
-	e->x_pos += (e->speed_x * 0.05);
-	e->y_pos += (e->speed_y * 0.06);
-
-
+	radius = 0.025;
+	ratio = 1200. / 1000.;
+	e->x_pos += (e->speed_x * 0.04);
+	e->y_pos += (e->speed_y * 0.05);
 	if (e->x_pos >= (ratio - radius) || e->x_pos <= (-ratio + radius))
 		e->speed_x *= -1;
 	else if (e->x_pos >= 1 || e->x_pos <= -1.0)
-	{
 		e->speed_x *= -1;
-	}
 	else if (e->y_pos >= 1.0 || e->y_pos <= -1.0)
 		e->speed_y *= -1;
-	//else if (e->x_pos >= 1.0 && e->y_pos >= 1.0)
-	//{
-	//	e->speed_y *= 1;
-	//	e->speed_x *= 1;
-	//}
-	//else if (e->y_pos >= (1. - radius))
-	//	e->speed_y *= -1;
-
 	else if (ft_collide(e))
-	{
-		e->speed_y *= -1;	
-	}
-	//if (ft_collide(e) && e->speed_y == 1 && e->speed_x == 1)
-	
+		e->speed_y *= -1;
 	ft_ball(e->x_pos, e->y_pos);
 }
-
