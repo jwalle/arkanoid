@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 16:10:28 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 16:26:14 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 17:29:09 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		ft_disp_life(void)
 	char	*str3;
 	size_t	z;
 
-	str3 = ft_strdup("LIFE ---- ");
+	str3 = ft_strdup("LIFE    ");
 	glColor3d(0.5, 0.0, 0.0);
 	glRasterPos2d(+0.7, -0.95);
 	z = 0;

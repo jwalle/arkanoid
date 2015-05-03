@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 16:05:15 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/02 16:11:52 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 17:02:16 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ float		ft_player(float x, GLFWwindow *window)
 		x -= 0.1;
 	glColor3f(1.0f, 0.0f, 0.0f);
 	glBegin(GL_QUADS);
-	glVertex2d(-(0.3f + x), -0.8f);
-	glVertex2d((0.3f - x), -0.8f);
-	glVertex2d((0.3f - x), -0.76f);
-	glVertex2d(-(0.3f + x), -0.76f);
+	glVertex2d(-(0.3f + x), -0.8f);//bas gauche
+	glVertex2d((0.3f - x), -0.8f);//bas droite
+	glVertex2d((0.3f - x), -0.76f);//haut droite
+	glVertex2d(-(0.3f + x), -0.76f);//haut gauche
 	glEnd();
 	return (x);
 }

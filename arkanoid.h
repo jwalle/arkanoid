@@ -6,7 +6,7 @@
 /*   By: kleiba <kleiba@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/01 20:29:57 by kleiba            #+#    #+#             */
-/*   Updated: 2015/05/03 16:17:08 by kleiba           ###   ########.fr       */
+/*   Updated: 2015/05/03 17:03:58 by kleiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ typedef struct 		s_env
 	float			speed_y;
 	float			x_pos;
 	float			y_pos;
+	float			x_bg;
+	float			x_bd;
+	float			x_hg;
+	float			x_hd;
+	float			y_bg;
+	float			y_bd;
+	float			y_hg;
+	float			y_hd;
 }					t_env;
 
 typedef struct		s_brick
@@ -59,5 +67,6 @@ void 	ft_ball_move(t_env *e);
 int		ft_collide(t_env *e);
 void	ft_score(t_env *e);
 void	ft_disp_score(t_env *e);
+void	ft_get_pos(t_env *e, float x_barre);
 
 #endif

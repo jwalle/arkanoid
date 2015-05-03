@@ -6,7 +6,8 @@ SRC = getting_started.c \
 		ft_player.c\
 		ft_ball.c\
 		ft_score.c\
-		ft_disp_score.c
+		ft_disp_score.c\
+		ft_get_pos.c
 
 OBJ			=	$(SRC:.c=.o)
 
