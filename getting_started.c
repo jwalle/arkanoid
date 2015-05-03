@@ -55,7 +55,7 @@ int			ft_getting_started(t_env *e, int i)
 		ft_rebond(e, window);
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE))
 			j = -1;
-		if (glfwGetKey(window, GLFW_KEY_N))
+		if (glfwGetKey(window, GLFW_KEY_N) || e->end == 0)
 			j = 2;
 		glfwPollEvents();
 		glfwSwapBuffers(window);

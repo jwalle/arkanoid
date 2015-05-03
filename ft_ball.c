@@ -24,8 +24,8 @@ void		ft_ball(float x_pos, float y_pos)
 	glVertex2d(x_pos, y_pos);
 	while (angle < 10)
 	{
-		glVertex2f((x_pos + sin(angle) * radius),
-				(y_pos + (cos(angle)) * radius));
+		glVertex2f((x_pos + sin(angle) * radius), 
+			(y_pos + (cos(angle)) * radius));
 		angle += 0.01;
 	}
 	glEnd();
